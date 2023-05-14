@@ -1,0 +1,185 @@
+Промежуточная аттестация 1 часть. Linux
+
+    ┌──(naumov㉿kaliLinux)-[~]
+    └─$ sudo su
+    [sudo] пароль для naumov: 
+    ┌──(root㉿kaliLinux)-[/home/naumov]
+    └─# apt update; apt upgrade -y; echo "обновление завершено"
+    Пол:1 http://mirror.truenetwork.ru/kali kali-rolling InRelease [41,2 kB]
+    Пол:2 http://mirror.truenetwork.ru/kali kali-rolling/main amd64 Packages [19,3 MB]
+    Пол:3 http://mirror.truenetwork.ru/kali kali-rolling/main amd64 Contents (deb) [44,5 MB]                                                                                           
+    Пол:4 http://mirror.truenetwork.ru/kali kali-rolling/non-free amd64 Packages [217 kB]                                                                                              
+    Пол:5 http://mirror.truenetwork.ru/kali kali-rolling/non-free amd64 Contents (deb) [928 kB]                                                                                        
+    Получено 64,9 MB за 45с (1 430 kB/s) 
+    .
+    .(обновление...)
+    .
+    1.  Создать две директории:
+    
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# mkdir ./'toys for schoolchildren' ./'preschool toys'
+                                                                                                                                                                                              
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# ls -al      
+        итого 16
+        drwxr-xr-x 4 root   root   4096 мая  2 13:25  .
+        drwxr-xr-x 9 naumov naumov 4096 мая  2 13:24  ..
+        drwxr-xr-x 2 root   root   4096 мая  2 13:25 'preschool toys'
+        drwxr-xr-x 2 root   root   4096 мая  2 13:25 'toys for schoolchildren'
+            
+    2.  Создать в директории 'toys for schoolchildren' текстоые файлы:
+            Robots
+            Constructor
+            Board games
+        
+        
+                                                                                                                                                 
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# touch ./toys\ for\ schoolchildren/Robots.txt ./toys\ for\ schoolchildren/Constructor.txt ./toys\ for\ schoolchildren/'Board games'.txt
+                                                                                                                                         
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# ll ./toys\ for\ schoolchildren 
+        итого 0
+        -rw-r--r-- 1 root root 0 мая  2 13:47 'Board games.txt'
+        -rw-r--r-- 1 root root 0 мая  2 13:47  Constructor.txt
+        -rw-r--r-- 1 root root 0 мая  2 13:47  Robots.txt
+                                                  
+     3. Создать в директории  'preschool toys' текстоые файлы:
+            Stuffed Toys
+            Dolls
+            Cars
+            
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux/preschool toys]
+        └─# pwd   
+        /home/naumov/homework/attestationLinux/preschool toys
+
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux/preschool toys]
+        └─# echo > ./'Stuffed toys' > ./Dolls > ./Cars
+
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux/preschool toys]
+        └─# la -al
+        итого 20
+        drwxr-xr-x 2 root root 4096 мая  2 13:58  .
+        drwxr-xr-x 4 root root 4096 мая  2 13:54  ..
+        -rw-r--r-- 1 root root    1 мая  2 13:58  Cars
+        -rw-r--r-- 1 root root    1 мая  2 13:58  Dolls
+        -rw-r--r-- 1 root root    1 мая  2 13:58 'Stuffed toys'
+         
+         
+    (2, 3 wiev)                                                                                                                                             
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# tree
+        .
+        ├── preschool toys
+        │   ├── Cars
+        │   ├── Dolls
+        │   └── Stuffed toys
+        └── toys for schoolchildren
+            ├── Board games.txt
+            ├── Constructor.txt
+            └── Robots.txt
+
+        3 directories, 6 files
+
+    4.  Объединить 2 директории в одну 'toy name':
+                                                                                                                                            
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# tree
+        .
+        ├── preschool toys
+        │   ├── Cars
+        │   ├── Dolls
+        │   └── Stuffed toys
+        └── toys for schoolchildren
+            ├── Board games.txt
+            ├── Constructor.txt
+            └── Robots.txt
+
+        3 directories, 6 files
+
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# mkdir ./'toy name'; mv ./preschool\ toys/* ./'toy name'; mv ./toys\ for\ schoolchildren/* ./'toy name'; rm -r preschool\ toys toys\ for\ schoolchildren 
+
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# tree
+        .
+        └── toy name
+            ├── Board games.txt
+            ├── Cars
+            ├── Constructor.txt
+            ├── Dolls
+            ├── Robots.txt
+            └── Stuffed toys
+
+        2 directories, 6 files
+        
+    5.  Переименовать директорию 'toy name' в 'toy':
+    
+                                                                                                                                                                             
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# mv ./toy\ name ./toy                                                                                                                                   
+
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# ll
+        итого 4
+        drwxr-xr-x 2 root root 4096 мая  2 18:15 toy
+        
+    6.  Посмотреть соделжимое каталога toy:
+        
+                                                                                                                                                                                  
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# la -al ./toy        
+        итого 20
+        drwxr-xr-x 2 root root 4096 мая  2 18:15  .
+        drwxr-xr-x 3 root root 4096 мая  2 18:21  ..
+        -rw-r--r-- 1 root root    0 мая  2 13:47 'Board games.txt'
+        -rw-r--r-- 1 root root    1 мая  2 13:58  Cars
+        -rw-r--r-- 1 root root    0 мая  2 13:47  Constructor.txt
+        -rw-r--r-- 1 root root    1 мая  2 13:58  Dolls
+        -rw-r--r-- 1 root root    0 мая  2 13:47  Robots.txt
+        -rw-r--r-- 1 root root    1 мая  2 13:58 'Stuffed toys'
+
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# tree ./toy 
+        ./toy
+        ├── Board games.txt
+        ├── Cars
+        ├── Constructor.txt
+        ├── Dolls
+        ├── Robots.txt
+        └── Stuffed toys
+
+        1 directory, 6 files
+    
+    7. 
+    
+                                                                                                                                                                          
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# snap list             
+        Name                Version          Rev    Tracking       Publisher     Notes
+        bare                1.0              5      latest/stable  canonical✓    base
+        core                16-2.58.3        14946  latest/stable  canonical✓    core
+        core18              20230320         2721   latest/stable  canonical✓    base
+        core20              20230308         1852   latest/stable  canonical✓    base
+        gimp                2.10.30          393    latest/stable  snapcrafters  -
+        gnome-3-38-2004     0+git.6f39565    140    latest/stable  canonical✓    -
+        gtk-common-themes   0.1-81-g442e511  1535   latest/stable  canonical✓    -
+        gtk2-common-themes  0.1              13     latest/stable  canonical✓    -
+        postman             10.13.0          204    v10/stable     postman-inc✓  -
+        snapd               2.59.1           18933  latest/stable  canonical✓    snapd
+        WARNING: There is 1 new warning. See 'snap warnings'.
+              
+                                                                                                                                                                              
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# snap install pycharm-community --classic
+        pycharm-community 2023.1.1 from jetbrains✓ installed
+        WARNING: There is 1 new warning. See 'snap warnings'.
+        
+        ┌──(root㉿kaliLinux)-[/home/naumov/homework/attestationLinux]
+        └─# pycharm-community
+        Команда 'pycharm-community' доступна в '/snap/bin/pycharm-community'
+        Команда не может быть найдена, потому что '/snap/bin' не включена в переменную окружения  PATH
+        pycharm-community: команда не найдена
+        
+        
+        
