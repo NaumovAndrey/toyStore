@@ -5,6 +5,8 @@ public class MenuItem {
     private String name;
     private Runnable action;
 
+
+
     public MenuItem(int id, String name, Runnable action) {
         this.id = id;
         this.name = name;
@@ -20,6 +22,8 @@ public class MenuItem {
     }
 
     public void run() {
-        action.run();
+        if (action != null){
+            action.run();
+        }
     }
 }

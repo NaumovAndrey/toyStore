@@ -9,6 +9,10 @@ public class Menu {
         items = new ArrayList<MenuItem>();
     }
 
+    public ArrayList<MenuItem> getItems() {
+        return items;
+    }
+
     public void addItem(MenuItem item) {
         items.add(item);
     }
